@@ -1,0 +1,1617 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     68104,       1609]
+NotebookOptionsPosition[     55560,       1331]
+NotebookOutlinePosition[     61903,       1471]
+CellTagsIndexPosition[     61860,       1468]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Binomial Probability Distribution", "Title",
+ CellChangeTimes->{{3.700774153171832*^9, 3.700774159196458*^9}, {
+  3.705104157104324*^9, 3.7051041574063416`*^9}, {3.70568519155404*^9, 
+  3.705685209964157*^9}, {3.7080352172815*^9, 
+  3.7080352246565*^9}},ExpressionUUID->"5142ffca-f66c-4e2f-ab7c-140997dc79ee"],
+
+Cell["\<\
+Binomial probability distributions are used in scenarios in which there are \
+two acceptable outcomes.\
+\>", "Abstract",
+ CellChangeTimes->{{3.700774172671139*^9, 3.700774220850109*^9}, {
+  3.700778895632181*^9, 3.700778896308676*^9}, {3.7051041615775795`*^9, 
+  3.705104170817108*^9}, {3.7080352729545*^9, 3.708035361696*^9}, {
+  3.708035394672*^9, 
+  3.708035427513*^9}},ExpressionUUID->"98e317cc-07b7-46e2-9c6f-ae665b9c424e"],
+
+Cell[CellGroupData[{
+
+Cell["Conditions for a Binomial Distribution Experiment", "Section",
+ CellChangeTimes->{{3.700774708350976*^9, 3.700774714085747*^9}, {
+  3.7051042493566003`*^9, 3.7051042513157125`*^9}, {3.705686166481989*^9, 
+  3.7056861672865133`*^9}, {3.7080372393155003`*^9, 3.7080372454215*^9}, {
+  3.7080942639410563`*^9, 3.7080942796820564`*^9}, {3.7080943160030565`*^9, 
+  3.7080943283450565`*^9}, {3.7080945916062555`*^9, 
+  3.7080945945605507`*^9}},ExpressionUUID->"0cfacbd9-8439-4b41-b35b-\
+01087404ec94"],
+
+Cell[CellGroupData[{
+
+Cell["A fixed number of trials ", "ItemNumbered",
+ CellChangeTimes->{{3.700774312865305*^9, 3.700774350341485*^9}, {
+  3.7051042689957237`*^9, 3.7051043842073135`*^9}, {3.705105072313671*^9, 
+  3.705105092602831*^9}, {3.705683778330366*^9, 3.705683783009487*^9}, {
+  3.7080943363750563`*^9, 3.708094359290056*^9}, {3.7080946033074255`*^9, 
+  3.7080946132334175`*^9}},ExpressionUUID->"4495aba5-af5a-4590-9fe3-\
+9281cf52cd5c"],
+
+Cell["Each trial is independent ", "ItemNumbered",
+ CellChangeTimes->{{3.700774312865305*^9, 3.700774350341485*^9}, {
+  3.7051042689957237`*^9, 3.7051043842073135`*^9}, {3.705105072313671*^9, 
+  3.705105092602831*^9}, {3.705683778330366*^9, 3.705683783009487*^9}, {
+  3.7080943363750563`*^9, 
+  3.7080943736380563`*^9}},ExpressionUUID->"f71f5b1d-33ed-4875-b935-\
+84b4841c6be1"],
+
+Cell["There are only two outcomes (success and failure)", "ItemNumbered",
+ CellChangeTimes->{{3.700774312865305*^9, 3.700774350341485*^9}, {
+  3.7051042689957237`*^9, 3.7051043842073135`*^9}, {3.705105072313671*^9, 
+  3.705105092602831*^9}, {3.705683778330366*^9, 3.705683783009487*^9}, {
+  3.7080943363750563`*^9, 3.7080943822560563`*^9}, {3.7080946258386784`*^9, 
+  3.708094636944789*^9}},ExpressionUUID->"13aff286-6346-4650-a9e1-\
+1fa93f42462c"],
+
+Cell["\<\
+The probability of each outcome remains constant in all trials\
+\>", "ItemNumbered",
+ CellChangeTimes->{{3.700774312865305*^9, 3.700774350341485*^9}, {
+  3.7051042689957237`*^9, 3.7051043842073135`*^9}, {3.705105072313671*^9, 
+  3.705105092602831*^9}, {3.705683778330366*^9, 3.705683783009487*^9}, {
+  3.7080943363750563`*^9, 3.708094407745056*^9}, {3.708094647479842*^9, 
+  3.7080946493020244`*^9}},ExpressionUUID->"c074c155-3b16-46f6-aa21-\
+d2d3d9b43314"]
+}, Open  ]],
+
+Cell["\<\
+Binomial Probability Distribution Formula
+\
+\>", "Text",
+ CellChangeTimes->{{3.700774271565714*^9, 3.70077428101515*^9}, {
+  3.70510436631329*^9, 3.705104402940385*^9}, {3.7051044918334694`*^9, 
+  3.705104547547656*^9}, {3.705104583096689*^9, 3.7051045898510756`*^9}, {
+  3.705105030495279*^9, 3.70510503226538*^9}, {3.7051051046345196`*^9, 
+  3.7051052440884957`*^9}, {3.7080947212222157`*^9, 
+  3.7080947567927723`*^9}},ExpressionUUID->"def2e319-622c-42a7-b098-\
+627e82e68c49"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"P", 
+    RowBox[{"(", "x", ")"}]}], "=", 
+   RowBox[{
+    RowBox[{
+     FractionBox[
+      RowBox[{"n", "!"}], 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"n", "-", "x"}], ")"}], "!"}], 
+       RowBox[{"x", "!"}]}]], 
+     SuperscriptBox["p", "x"], 
+     SuperscriptBox["q", 
+      RowBox[{"n", "-", "x"}]], "         ", "for", " ", "x"}], "=", "0"}]}], 
+  ",", "1", ",", "2", ",", "...", ",", 
+  "n"}], "\[IndentingNewLine]", "where", "\[IndentingNewLine]", 
+ RowBox[{"\t", 
+  RowBox[{"n", "=", 
+   RowBox[{"number", " ", "of", " ", "trials"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"\t", 
+  RowBox[{"x", "=", 
+   RowBox[{
+   "number", " ", "of", " ", "successes", " ", "in", " ", "n", " ", 
+    "trials"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"\t", 
+  RowBox[{"p", "=", 
+   RowBox[{
+   "probability", " ", "of", " ", "success", " ", "in", " ", "any", " ", 
+    "one", " ", "trial"}]}]}], "\[IndentingNewLine]", 
+ RowBox[{"\t", 
+  RowBox[{"q", "=", 
+   RowBox[{
+   "probaility", " ", "of", " ", "failure", " ", "in", " ", "any", " ", "one",
+     " ", "trial"}]}], 
+  " "}], "\[IndentingNewLine]"}], "DisplayFormulaNumbered",
+ CellChangeTimes->{{3.708095147219056*^9, 3.708095149476056*^9}, {
+  3.708095194190056*^9, 3.7080954208870564`*^9}, {3.7080955181396327`*^9, 
+  3.7080956742966757`*^9}},ExpressionUUID->"a53a063b-7d59-4fd8-bbf7-\
+4a2efa126b6c"],
+
+Cell[TextData[{
+ "Flipping a coin is an example of a Binomial Probability Distribution. Let\
+\[CloseCurlyQuote]s say we flip a coin twice, and when we get heads, we will \
+consider the trial a success with a probability of .5, and when we get Tails \
+we will treat the trial as a failure with a probability of 0.5. Since we flip \
+the coin twice, we have 2 trials and four possible outcomes.\n\n",
+ Cell[BoxData[
+  GraphicsBox[
+   TagBox[RasterBox[CompressedData["
+1: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
+hJC98/+lSpDb
+     "], {{0, 282}, {369, 0}}, {0, 255},
+     ColorFunction->RGBColor],
+    BoxForm`ImageTag["Byte", ColorSpace -> "RGB", Interleaving -> True],
+    Selectable->False],
+   DefaultBaseStyle->"ImageGraphics",
+   ImageSize->{194.9999999999999, Automatic},
+   ImageSizeRaw->{369, 282},
+   PlotRange->{{0, 369}, {0, 282}}]], "Input",ExpressionUUID->
+  "8f6ead08-44a1-4fdc-8ce1-21e0a5188deb"],
+ "\n"
+}], "Text",
+ CellChangeTimes->{{3.708099559773517*^9, 3.708099762524909*^9}, {
+   3.708099816165992*^9, 3.7080999737546797`*^9}, 3.708101455567987*^9, {
+   3.708101553690987*^9, 3.708101570941987*^9}, {3.7081869152434998`*^9, 
+   3.7081869768645*^9}},ExpressionUUID->"cefec822-7f28-4291-baa4-\
+2af8983e6cfd"],
+
+Cell["Plot probabilities of  getting 0, 1, and 2 heads.", "Direction",
+ CellChangeTimes->{{3.708108605343068*^9, 3.708108653272068*^9}, 
+   3.7081869895825*^9},ExpressionUUID->"8c255bfe-b1df-4391-96a9-1b16095d008b"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"n", "=", "2"}], ";", " ", 
+  RowBox[{"p", "=", ".5"}], ";"}]], "Input",
+ CellChangeTimes->{{3.708108828753068*^9, 3.708108892840068*^9}, {
+   3.708109371898589*^9, 3.708109372098587*^9}, 3.7081094080312705`*^9, {
+   3.7081233669295*^9, 3.7081233726035*^9}},
+ CellLabel->"In[95]:=",ExpressionUUID->"4a5d5e18-e5cf-40ef-9ee7-6dd8a0d4a746"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"BarChart", "[", 
+  RowBox[{
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"PDF", "[", 
+      RowBox[{
+       RowBox[{"BinomialDistribution", "[", 
+        RowBox[{"n", ",", "p"}], "]"}], ",", "i"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "0", ",", "n"}], "}"}]}], "]"}], ",", 
+   RowBox[{"PlotLabel", "\[Rule]", 
+    RowBox[{"Style", "[", 
+     RowBox[{
+     "\"\<Probability associated with each value of the random variable\>\"", 
+      ",", "Blue", ",", "12"}], "]"}]}], ",", 
+   RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+   RowBox[{"FrameLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\"\<Result of flip\>\"", ",", "\"\<Probability\>\""}], "}"}]}], 
+   ",", 
+   RowBox[{"ChartLabels", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"Range", "[", 
+      RowBox[{"0", ",", "n"}], "]"}], "}"}]}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "1"}], "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.7081029996973815`*^9, 3.7081030975717773`*^9}, {
+   3.708103136449562*^9, 3.708103156023446*^9}, {3.708105492129998*^9, 
+   3.708105566484374*^9}, 3.708106764899021*^9, 3.7081073810541945`*^9, {
+   3.708108799763068*^9, 3.708108825312068*^9}, {3.708108864832068*^9, 
+   3.7081088652420683`*^9}, {3.708123377651*^9, 3.7081233784709997`*^9}, {
+   3.7081915298380003`*^9, 3.7081915406730003`*^9}, {3.708191621477*^9, 
+   3.708191626983*^9}, {3.70819290023*^9, 3.708192960617*^9}, {
+   3.7081931190220003`*^9, 3.708193138317*^9}, {3.7081932428970003`*^9, 
+   3.708193321105*^9}, {3.708193492041*^9, 3.708193672617*^9}, {
+   3.708193905148*^9, 3.708194059606*^9}, 3.708202279021*^9},
+ CellLabel->
+  "In[233]:=",ExpressionUUID->"12e9c00b-1a30-4f6b-a756-a94e0af9e76a"],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {Opacity[0], 
+    PointBox[{{0.0195484340859432, 0.}, {4.902403495994173, 0.}}]}, {{}, 
+    {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[
+     0.6719999999999999], Thickness[Small]}], 
+     {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[
+      0.6719999999999999], Thickness[Small]}], 
+      TagBox[
+       TooltipBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           
+           RectangleBox[{0.5487982520029133, 0.}, {1.4512017479970867`, 
+            0.12500000000000003`}, "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{109.31834180568482`, 196.87019617670222`}, {
+           100.59131992762454`, 137.24812899588602`}}],
+         StatusArea[#, 0.12500000000000003`]& ,
+         TagBoxNote->"0.12500000000000003"],
+        StyleBox["0.12500000000000003`", {}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[0.12500000000000003`, {}], "Tooltip"]& ]}, 
+     {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[
+      0.6719999999999999], Thickness[Small]}], 
+      TagBox[
+       TooltipBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           
+           RectangleBox[{1.5487982520029133`, 0.}, {2.4512017479970867`, 
+            0.3749999999999999}, "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{205.50796735161452`, 293.0598217226319}, {
+           28.77770179110165, 137.24812899588602`}}],
+         StatusArea[#, 0.3749999999999999]& ,
+         TagBoxNote->"0.3749999999999999"],
+        StyleBox["0.3749999999999999`", {}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[0.3749999999999999, {}], "Tooltip"]& ]}, 
+     {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[
+      0.6719999999999999], Thickness[Small]}], 
+      TagBox[
+       TooltipBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           
+           RectangleBox[{2.5487982520029133`, 0.}, {3.4512017479970867`, 
+            0.3749999999999999}, "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{301.6975928975442, 389.2494472685616}, {
+           28.77770179110165, 137.24812899588602`}}],
+         StatusArea[#, 0.3749999999999999]& ,
+         TagBoxNote->"0.3749999999999999"],
+        StyleBox["0.3749999999999999`", {}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[0.3749999999999999, {}], "Tooltip"]& ]}, 
+     {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[
+      0.6719999999999999], Thickness[Small]}], 
+      TagBox[
+       TooltipBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           
+           RectangleBox[{3.5487982520029133`, 0.}, {4.451201747997087, 
+            0.12500000000000003`}, "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{397.8872184434739, 485.4390728144913}, {
+           100.59131992762454`, 137.24812899588602`}}],
+         StatusArea[#, 0.12500000000000003`]& ,
+         TagBoxNote->"0.12500000000000003"],
+        StyleBox["0.12500000000000003`", {}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[0.12500000000000003`, {}], 
+        "Tooltip"]& ]}}, {}, {}}, {}, {}, {}, {}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{False, False},
+  AxesLabel->{None, None},
+  AxesOrigin->{0.0195484340859432, 0.},
+  CoordinatesToolOptions:>{"DisplayFunction" -> ({
+      Identity[
+       Part[#, 1]], 
+      Identity[
+       Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+      Identity[
+       Part[#, 1]], 
+      Identity[
+       Part[#, 2]]}& )},
+  Frame->True,
+  FrameLabel->{{
+     FormBox["\"Probability\"", TraditionalForm], None}, {
+     FormBox["\"Result of flip\"", TraditionalForm], None}},
+  FrameTicks->{{Automatic, Automatic}, {{{1., 
+       FormBox[
+        InterpretationBox[
+         StyleBox[
+          GraphicsBox[{}, ImageSize -> {0, 0}, BaselinePosition -> Baseline], 
+          "CacheGraphics" -> False], 
+         Spacer[0], Selectable -> False], TraditionalForm], {0.004, 0}}, {1., 
+       FormBox["0", TraditionalForm], 0}, {2., 
+       FormBox[
+        InterpretationBox[
+         StyleBox[
+          GraphicsBox[{}, ImageSize -> {0, 0}, BaselinePosition -> Baseline], 
+          "CacheGraphics" -> False], 
+         Spacer[0], Selectable -> False], TraditionalForm], {0.004, 0}}, {2., 
+       FormBox["1", TraditionalForm], 0}, {3., 
+       FormBox[
+        InterpretationBox[
+         StyleBox[
+          GraphicsBox[{}, ImageSize -> {0, 0}, BaselinePosition -> Baseline], 
+          "CacheGraphics" -> False], 
+         Spacer[0], Selectable -> False], TraditionalForm], {0.004, 0}}, {3., 
+       FormBox["2", TraditionalForm], 0}, {4., 
+       FormBox[
+        InterpretationBox[
+         StyleBox[
+          GraphicsBox[{}, ImageSize -> {0, 0}, BaselinePosition -> Baseline], 
+          "CacheGraphics" -> False], 
+         Spacer[0], Selectable -> False], TraditionalForm], {0.004, 0}}, {4., 
+       FormBox["3", TraditionalForm], 0}}, {{1., 
+       FormBox[
+        InterpretationBox[
+         StyleBox[
+          GraphicsBox[{}, ImageSize -> {0, 0}, BaselinePosition -> Baseline], 
+          "CacheGraphics" -> False], 
+         Spacer[0], Selectable -> False], TraditionalForm], {0.004, 0}}, {2., 
+       FormBox[
+        InterpretationBox[
+         StyleBox[
+          GraphicsBox[{}, ImageSize -> {0, 0}, BaselinePosition -> Baseline], 
+          "CacheGraphics" -> False], 
+         Spacer[0], Selectable -> False], TraditionalForm], {0.004, 0}}, {3., 
+       FormBox[
+        InterpretationBox[
+         StyleBox[
+          GraphicsBox[{}, ImageSize -> {0, 0}, BaselinePosition -> Baseline], 
+          "CacheGraphics" -> False], 
+         Spacer[0], Selectable -> False], TraditionalForm], {0.004, 0}}, {4., 
+       FormBox[
+        InterpretationBox[
+         StyleBox[
+          GraphicsBox[{}, ImageSize -> {0, 0}, BaselinePosition -> Baseline], 
+          "CacheGraphics" -> False], 
+         Spacer[0], Selectable -> False], TraditionalForm], {0.004, 0}}}}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  PlotLabel->FormBox[
+    StyleBox[
+    "\"Probability associated with each value of the random variable\"", 
+     RGBColor[0, 0, 1], 12, StripOnInput -> False], TraditionalForm],
+  PlotRange->{{All, All}, {0, 1}},
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {None, 
+     Scaled[0.05]}},
+  Ticks->{None, Automatic}]], "Output",
+ CellChangeTimes->{
+  3.708193322106*^9, 3.708193487293*^9, {3.708193527273*^9, 
+   3.708193623127*^9}, 3.708193661459*^9, {3.708193932517*^9, 
+   3.7081939766470003`*^9}, {3.708194012367*^9, 3.708194060467*^9}, 
+   3.708202282862*^9},
+ CellLabel->
+  "Out[233]=",ExpressionUUID->"4090fbd5-3b69-48ad-a74c-47ffafe1bf0c"]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.7081920409230003`*^9, 
+  3.708192042583*^9}},ExpressionUUID->"e7e485cf-08e0-4c21-98dd-b10c8b36b4f3"],
+
+Cell["\<\
+Based on frequency distribution, what is the probability of getting one or \
+more heads? P(1)+P(2)\
+\>", "Text",
+ CellChangeTimes->{{3.705683964567428*^9, 3.705683981488122*^9}, {
+  3.708108997414068*^9, 
+  3.708109063704068*^9}},ExpressionUUID->"848e92e9-e120-48a7-857d-\
+0472038fbf47"],
+
+Cell["\<\
+The interactive demonstration below allows you to explore the probability \
+distribution for up to 20 coin tosses. When should you change the probability \
+p? Explain.\
+\>", "Direction",
+ CellChangeTimes->{{3.7056860922471857`*^9, 3.7056860957264357`*^9}, {
+   3.7081210555415*^9, 3.708121193061*^9}, 
+   3.7081870299895*^9},ExpressionUUID->"c3d42781-ac1e-4b15-b6eb-2f9923450b6c"],
+
+Cell["", "Text",
+ CellChangeTimes->{{3.705104661930198*^9, 3.705104689215759*^9}, {
+  3.7051047393916287`*^9, 3.705104783753166*^9}, {3.7051049729169855`*^9, 
+  3.7051050045267935`*^9}, {3.705169822193218*^9, 3.705169825188218*^9}, {
+  3.7081211978269997`*^9, 
+  3.7081211993465*^9}},ExpressionUUID->"47bdf35c-d664-4cda-9f01-086a1ae55be9"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"BarChart", "[", 
+    RowBox[{
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"PDF", "[", 
+        RowBox[{
+         RowBox[{"BinomialDistribution", "[", 
+          RowBox[{"n", ",", "p"}], "]"}], ",", "i"}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "0", ",", "20"}], "}"}]}], "]"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"PlotRange", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", ".5"}], ",", "21.5"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", ".1"}], ",", ".5"}], "}"}]}], "}"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Epilog", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"PointSize", "[", ".03", "]"}], ",", 
+        RowBox[{"RGBColor", "[", 
+         RowBox[{"1", ",", ".47", ",", "0"}], "]"}], ",", 
+        RowBox[{"Point", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"n", "*", "p"}], "+", "1"}], ",", "0"}], "}"}], "]"}]}], 
+       "}"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"ImageSize", "\[Rule]", 
+      RowBox[{"{", 
+       RowBox[{"450", ",", "350"}], "}"}]}]}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"n", ",", "20", ",", "\"\<number of tosses n\>\""}], "}"}], ",",
+      "1", ",", "20", ",", "1", ",", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "p", ",", ".5", ",", "\"\<probability p of head on each toss\>\""}], 
+      "}"}], ",", "0", ",", "1", ",", "\[IndentingNewLine]", 
+     RowBox[{"Appearance", "\[Rule]", "\"\<Labeled\>\""}]}], "}"}]}], 
+  "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{{3.7080363401165*^9, 3.7080366239975*^9}, {
+  3.7080366949425*^9, 3.7080367627054996`*^9}, {3.708193396459*^9, 
+  3.7081933969040003`*^9}},
+ CellLabel->
+  "In[140]:=",ExpressionUUID->"cb7e68b1-1778-4420-89b9-a487d90a290c"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`n$$ = 20, $CellContext`p$$ = 0.136, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`n$$], 20, "number of tosses n"}, 1, 20, 1}, {{
+       Hold[$CellContext`p$$], 0.5, "probability p of head on each toss"}, 0, 
+      1}}, Typeset`size$$ = {675., {258., 267.}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`n$53496$$ = 0, $CellContext`p$53497$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`n$$ = 20, $CellContext`p$$ = 0.5}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`n$$, $CellContext`n$53496$$, 0], 
+        Hold[$CellContext`p$$, $CellContext`p$53497$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> BarChart[
+        Table[
+         PDF[
+          
+          BinomialDistribution[$CellContext`n$$, $CellContext`p$$], \
+$CellContext`i], {$CellContext`i, 0, 20}], 
+        PlotRange -> {{-0.5, 21.5}, {-0.1, 0.5}}, Epilog -> {
+          PointSize[0.03], 
+          RGBColor[1, 0.47, 0], 
+          Point[{$CellContext`n$$ $CellContext`p$$ + 1, 0}]}, 
+        ImageSize -> {450, 350}], 
+      "Specifications" :> {{{$CellContext`n$$, 20, "number of tosses n"}, 1, 
+         20, 1, Appearance -> 
+         "Labeled"}, {{$CellContext`p$$, 0.5, 
+          "probability p of head on each toss"}, 0, 1, Appearance -> 
+         "Labeled"}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{783., {349., 358.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.7080365951455*^9, 3.7080366253835*^9}, {
+   3.7080366988315*^9, 3.7080367635605*^9}, 3.708193357197*^9, 
+   3.7081933976870003`*^9, 3.708193452377*^9},
+ CellLabel->
+  "Out[140]=",ExpressionUUID->"dbb4bb49-e4c9-4d1a-a606-8999ec832076"]
+}, Open  ]],
+
+Cell["\<\
+If a coin that comes up heads with probability  is tossed  times, the number \
+of heads observed follows a binomial probability distribution. Move the \
+sliders and watch how the distribution changes. The mean of the distribution\
+\[LongDash]the number of heads one \[OpenCurlyDoubleQuote]expects\
+\[CloseCurlyDoubleQuote] to observe\[LongDash]is marked with an orange circle \
+on the horizontal axis.\
+\>", "Text",
+ CellChangeTimes->{
+  3.7081092915883317`*^9},ExpressionUUID->"79270907-56a9-459f-831f-\
+c400082d5fc0"],
+
+Cell["\<\
+Practice:
+If you flip a fair coin 15 times, what is the probability you get the \
+following:
+1.  heads will appear exactly 7 times?
+2.  there will be at most 7 heads?
+3.  there will be at least 6 heads?  
+4. heads will appear \
+\>", "Text",
+ CellChangeTimes->{{3.708109209262102*^9, 3.708109273361504*^9}, {
+  3.708109308102177*^9, 3.7081093194520683`*^9}, {3.7081212174095*^9, 
+  3.7081212403695*^9}, {3.7081215326085*^9, 3.7081215913515*^9}, {
+  3.708121690618*^9, 
+  3.708121710701*^9}},ExpressionUUID->"8d9b6dcf-1842-45ca-81f3-b2d4943b2938"],
+
+Cell["\<\
+Example 2: Are you thinking of getting a tattoo? Based in a Harris poll, \
+among adults who regret getting tattoos, 20% say that they were too young \
+when they got their tattoos. Assume that 5 adults who regret getting a tattoo \
+are randomly selected, find the indicated probability:
+1. Find the probability that none of the selected adults say that they were \
+too young to get tattoos.
+2. Find the probability that exactly one of the selected adults says that he \
+or she was too young to get tattoos.
+3. Find the probability that the number of selected adults say they were too \
+young is at most 1.
+\
+\>", "Text",
+ CellChangeTimes->{
+  3.7080990385901146`*^9, 3.7081092819304223`*^9, {3.7081220028385*^9, 
+   3.7081223394125*^9}, {3.7081224214075003`*^9, 3.708122471594*^9}, 
+   3.708122596176*^9, {3.7081228230355*^9, 3.7081228244189997`*^9}, {
+   3.7081870524955*^9, 
+   3.7081870676445*^9}},ExpressionUUID->"16db3511-c830-419a-9c43-\
+a7c43f737788"],
+
+Cell["\<\
+Using the BinomialDistribution function in the Wolfram language, we can \
+explore try different experiments by simply changing the n and p values.\
+\>", "Direction",
+ InitializationCell->True,
+ CellChangeTimes->{{3.7081870974414997`*^9, 
+  3.7081871932395*^9}},ExpressionUUID->"fdeee94d-574b-495d-918b-3acaaa3ca8df"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"n", "=", "5"}], ";"}]], "Input",
+ CellChangeTimes->{{3.708122293692*^9, 3.708122294363*^9}, {3.708122522517*^9,
+   3.7081225280215*^9}},
+ CellLabel->
+  "In[234]:=",ExpressionUUID->"ac613ca8-0ad2-439b-be36-04b7f0a69f83"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"p", "=", ".20"}], ";"}]], "Input",
+ CellChangeTimes->{{3.7081225389535*^9, 3.708122561295*^9}},
+ CellLabel->
+  "In[235]:=",ExpressionUUID->"baf3fdcb-db95-4621-bd1b-8b4ac7d9bfe7"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"BarChart", "[", 
+  RowBox[{
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"PDF", "[", 
+      RowBox[{
+       RowBox[{"BinomialDistribution", "[", 
+        RowBox[{"n", ",", "p"}], "]"}], ",", "i"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "0", ",", "n"}], "}"}]}], "]"}], ",", 
+   RowBox[{"PlotLabel", "\[Rule]", 
+    RowBox[{"Style", "[", 
+     RowBox[{
+     "\"\<Probability associated with each value of the random variable\>\"", 
+      ",", "Blue", ",", "12"}], "]"}]}], ",", 
+   RowBox[{"Frame", "\[Rule]", "True"}], ",", 
+   RowBox[{"FrameLabel", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"\"\<Result of experiment\>\"", ",", "\"\<Probability\>\""}], 
+     "}"}]}], ",", 
+   RowBox[{"ChartLabels", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"Range", "[", 
+      RowBox[{"0", ",", "n"}], "]"}], "}"}]}], ",", 
+   RowBox[{"PlotRange", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "1"}], "}"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.708202404033*^9, 3.708202409752*^9}},
+ CellLabel->
+  "In[236]:=",ExpressionUUID->"d74f2974-4245-4757-a5cf-a8097ba96347"],
+
+Cell[BoxData[
+ GraphicsBox[{
+   {Opacity[0], 
+    PointBox[{{0.43075018208302984`, 0.}, {6.451201747997087, 0.}}]}, {{}, 
+    {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[
+     0.6579999999999999], Thickness[Small]}], 
+     {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[
+      0.6579999999999999], Thickness[Small]}], 
+      TagBox[
+       TooltipBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           
+           RectangleBox[{0.5487982520029133, 0.}, {1.4512017479970867`, 
+            0.3276800000000001}, "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{67.61941176470587, 138.76959177748097`}, {
+           42.37058343198265, 137.24812899588602`}}],
+         StatusArea[#, 0.3276800000000001]& ,
+         TagBoxNote->"0.3276800000000001"],
+        StyleBox["0.3276800000000001`", {}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[0.3276800000000001, {}], "Tooltip"]& ]}, 
+     {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[
+      0.6579999999999999], Thickness[Small]}], 
+      TagBox[
+       TooltipBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           
+           RectangleBox[{1.5487982520029133`, 0.}, {2.4512017479970867`, 
+            0.4096000000000003}, "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{145.63349340920968`, 216.78367342198476`}, {
+           18.838697041006768`, 137.24812899588602`}}],
+         StatusArea[#, 0.4096000000000003]& ,
+         TagBoxNote->"0.4096000000000003"],
+        StyleBox["0.4096000000000003`", {}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[0.4096000000000003, {}], "Tooltip"]& ]}, 
+     {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[
+      0.6579999999999999], Thickness[Small]}], 
+      TagBox[
+       TooltipBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           
+           RectangleBox[{2.5487982520029133`, 0.}, {3.4512017479970867`, 
+            0.2048}, "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{223.64757505371347`, 294.79775506648855`}, {
+           77.66841301844643, 137.24812899588602`}}],
+         StatusArea[#, 0.2048]& ,
+         TagBoxNote->"0.2048"],
+        StyleBox["0.2048`", {}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[0.2048, {}], "Tooltip"]& ]}, 
+     {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[
+      0.6579999999999999], Thickness[Small]}], 
+      TagBox[
+       TooltipBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           
+           RectangleBox[{3.5487982520029133`, 0.}, {4.451201747997087, 
+            0.051200000000000016`}, "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{301.66165669821726`, 372.81183671099234`}, {
+           121.79070000152612`, 137.24812899588602`}}],
+         StatusArea[#, 0.051200000000000016`]& ,
+         TagBoxNote->"0.051200000000000016"],
+        StyleBox["0.051200000000000016`", {}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[0.051200000000000016`, {}], "Tooltip"]& ]}, 
+     {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[
+      0.6579999999999999], Thickness[Small]}], 
+      TagBox[
+       TooltipBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           
+           RectangleBox[{4.548798252002913, 0.}, {5.451201747997087, 
+            0.006400000000000009}, "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{379.67573834272105`, 450.8259183554961}, {
+           134.65970037159104`, 137.24812899588602`}}],
+         StatusArea[#, 0.006400000000000009]& ,
+         TagBoxNote->"0.006400000000000009"],
+        StyleBox["0.006400000000000009`", {}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[0.006400000000000009, {}], "Tooltip"]& ]}, 
+     {RGBColor[0.982864, 0.7431472, 0.3262672], EdgeForm[{Opacity[
+      0.6579999999999999], Thickness[Small]}], 
+      TagBox[
+       TooltipBox[
+        TagBox[
+         DynamicBox[{
+           FEPrivate`If[
+            CurrentValue["MouseOver"], 
+            EdgeForm[{
+              GrayLevel[0.5], 
+              AbsoluteThickness[1.5], 
+              Opacity[0.66]}], {}, {}], 
+           
+           RectangleBox[{5.548798252002913, 0.}, {6.451201747997087, 
+            0.0003200000000000001}, "RoundingRadius" -> 0]},
+          
+          ImageSizeCache->{{457.68981998722484`, 528.8399999999999}, {
+           136.40620756467126`, 137.24812899588602`}}],
+         StatusArea[#, 0.0003200000000000001]& ,
+         TagBoxNote->"0.0003200000000000001"],
+        StyleBox["0.0003200000000000001`", {}, StripOnInput -> False]],
+       Annotation[#, 
+        Style[0.0003200000000000001, {}], 
+        "Tooltip"]& ]}}, {}, {}}, {}, {}, {}, {}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{False, False},
+  AxesLabel->{None, None},
+  AxesOrigin->{0.43075018208302984`, 0.},
+  CoordinatesToolOptions:>{"DisplayFunction" -> ({
+      Identity[
+       Part[#, 1]], 
+      Identity[
+       Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+      Identity[
+       Part[#, 1]], 
+      Identity[
+       Part[#, 2]]}& )},
+  Frame->True,
+  FrameLabel->{{
+     FormBox["\"Probability\"", TraditionalForm], None}, {
+     FormBox["\"Result of experiment\"", TraditionalForm], None}},
+  FrameTicks->{{Automatic, Automatic}, {{{1., 
+       FormBox[
+        InterpretationBox[
+         StyleBox[
+          GraphicsBox[{}, ImageSize -> {0, 0}, BaselinePosition -> Baseline], 
+          "CacheGraphics" -> False], 
+         Spacer[0], Selectable -> False], TraditionalForm], {0.004, 0}}, {1., 
+       FormBox["0", TraditionalForm], 0}, {2., 
+       FormBox[
+        InterpretationBox[
+         StyleBox[
+          GraphicsBox[{}, ImageSize -> {0, 0}, BaselinePosition -> Baseline], 
+          "CacheGraphics" -> False], 
+         Spacer[0], Selectable -> False], TraditionalForm], {0.004, 0}}, {2., 
+       FormBox["1", TraditionalForm], 0}, {3., 
+       FormBox[
+        InterpretationBox[
+         StyleBox[
+          GraphicsBox[{}, ImageSize -> {0, 0}, BaselinePosition -> Baseline], 
+          "CacheGraphics" -> False], 
+         Spacer[0], Selectable -> False], TraditionalForm], {0.004, 0}}, {3., 
+       FormBox["2", TraditionalForm], 0}, {4., 
+       FormBox[
+        InterpretationBox[
+         StyleBox[
+          GraphicsBox[{}, ImageSize -> {0, 0}, BaselinePosition -> Baseline], 
+          "CacheGraphics" -> False], 
+         Spacer[0], Selectable -> False], TraditionalForm], {0.004, 0}}, {4., 
+       FormBox["3", TraditionalForm], 0}, {5., 
+       FormBox[
+        InterpretationBox[
+         StyleBox[
+          GraphicsBox[{}, ImageSize -> {0, 0}, BaselinePosition -> Baseline], 
+          "CacheGraphics" -> False], 
+         Spacer[0], Selectable -> False], TraditionalForm], {0.004, 0}}, {5., 
+       FormBox["4", TraditionalForm], 0}, {6., 
+       FormBox[
+        InterpretationBox[
+         StyleBox[
+          GraphicsBox[{}, ImageSize -> {0, 0}, BaselinePosition -> Baseline], 
+          "CacheGraphics" -> False], 
+         Spacer[0], Selectable -> False], TraditionalForm], {0.004, 0}}, {6., 
+       FormBox["5", TraditionalForm], 0}}, {{1., 
+       FormBox[
+        InterpretationBox[
+         StyleBox[
+          GraphicsBox[{}, ImageSize -> {0, 0}, BaselinePosition -> Baseline], 
+          "CacheGraphics" -> False], 
+         Spacer[0], Selectable -> False], TraditionalForm], {0.004, 0}}, {2., 
+       FormBox[
+        InterpretationBox[
+         StyleBox[
+          GraphicsBox[{}, ImageSize -> {0, 0}, BaselinePosition -> Baseline], 
+          "CacheGraphics" -> False], 
+         Spacer[0], Selectable -> False], TraditionalForm], {0.004, 0}}, {3., 
+       FormBox[
+        InterpretationBox[
+         StyleBox[
+          GraphicsBox[{}, ImageSize -> {0, 0}, BaselinePosition -> Baseline], 
+          "CacheGraphics" -> False], 
+         Spacer[0], Selectable -> False], TraditionalForm], {0.004, 0}}, {4., 
+       FormBox[
+        InterpretationBox[
+         StyleBox[
+          GraphicsBox[{}, ImageSize -> {0, 0}, BaselinePosition -> Baseline], 
+          "CacheGraphics" -> False], 
+         Spacer[0], Selectable -> False], TraditionalForm], {0.004, 0}}, {5., 
+       FormBox[
+        InterpretationBox[
+         StyleBox[
+          GraphicsBox[{}, ImageSize -> {0, 0}, BaselinePosition -> Baseline], 
+          "CacheGraphics" -> False], 
+         Spacer[0], Selectable -> False], TraditionalForm], {0.004, 0}}, {6., 
+       FormBox[
+        InterpretationBox[
+         StyleBox[
+          GraphicsBox[{}, ImageSize -> {0, 0}, BaselinePosition -> Baseline], 
+          "CacheGraphics" -> False], 
+         Spacer[0], Selectable -> False], TraditionalForm], {0.004, 0}}}}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  PlotLabel->FormBox[
+    StyleBox[
+    "\"Probability associated with each value of the random variable\"", 
+     RGBColor[0, 0, 1], 12, StripOnInput -> False], TraditionalForm],
+  PlotRange->{{All, All}, {0, 1}},
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {None, 
+     Scaled[0.05]}},
+  Ticks->{None, Automatic}]], "Output",
+ CellChangeTimes->{
+  3.7081225696865*^9, {3.7081873822515*^9, 3.7081873859145*^9}, 
+   3.7081879175004997`*^9, 3.7081937995290003`*^9, 3.708202410604*^9},
+ CellLabel->
+  "Out[236]=",ExpressionUUID->"9d61b64b-8dfb-4a80-948d-98c072bfbdbd"]
+}, Open  ]],
+
+Cell["Obtain probability distribution values", "Direction",
+ CellChangeTimes->{{3.7081879451245003`*^9, 3.7081879830715*^9}, {
+  3.7081897121219997`*^9, 
+  3.708189723303*^9}},ExpressionUUID->"db2e2a21-eda1-494f-9abc-b9a2a796a819"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"distValues", "=", 
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"x", ",", " ", 
+      RowBox[{"PDF", "[", 
+       RowBox[{
+        RowBox[{"BinomialDistribution", "[", 
+         RowBox[{"n", ",", " ", "p"}], "]"}], ",", " ", "x"}], "]"}]}], "}"}],
+     ",", " ", 
+    RowBox[{"{", 
+     RowBox[{"x", ",", " ", "0", ",", " ", "n"}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.708189727134*^9, 3.7081897403459997`*^9}},
+ CellLabel->"In[60]:=",ExpressionUUID->"68e2af5e-8c70-4fda-a2e2-f31d8cbba89a"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0", ",", "0.3276800000000001`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "0.4096000000000003`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", "0.2048`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "0.051200000000000016`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4", ",", "0.006400000000000009`"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"5", ",", "0.0003200000000000001`"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.708189697406*^9, 3.708189741208*^9},
+ CellLabel->"Out[60]=",ExpressionUUID->"545ec6e7-acac-4402-b27a-67657c93f051"]
+}, Open  ]],
+
+Cell["Creating a probability distribution table", "Direction",
+ CellChangeTimes->{{3.7081898134189997`*^9, 
+  3.708189841257*^9}},ExpressionUUID->"e91be345-378a-4d33-bcc7-226919e28445"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TableForm", "@", "distValues"}]], "Input",
+ CellChangeTimes->{{3.7081875301085*^9, 3.7081876155935*^9}, {
+  3.7081877548955*^9, 3.7081877993675003`*^9}, {3.7081878326584997`*^9, 
+  3.7081878639435*^9}, {3.7081881184084997`*^9, 3.7081881300255003`*^9}, {
+  3.7081883023775*^9, 3.7081883157635*^9}, {3.708188528296*^9, 
+  3.7081885430810003`*^9}, {3.708189254708*^9, 3.708189272734*^9}, {
+  3.7081897556140003`*^9, 3.708189772509*^9}},
+ CellLabel->"In[62]:=",ExpressionUUID->"f198e100-b56a-497c-9c97-2ea492f48499"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {"0", "0.3276800000000001`"},
+    {"1", "0.4096000000000003`"},
+    {"2", "0.2048`"},
+    {"3", "0.051200000000000016`"},
+    {"4", "0.006400000000000009`"},
+    {"5", "0.0003200000000000001`"}
+   },
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}},
+   GridBoxSpacings->{"Columns" -> {
+       Offset[0.27999999999999997`], {
+        Offset[2.0999999999999996`]}, 
+       Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+       Offset[0.2], {
+        Offset[0.4]}, 
+       Offset[0.2]}, "RowsIndexed" -> {}}],
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{
+  3.7081878645935*^9, 3.7081879227325*^9, 3.7081881333145*^9, {
+   3.7081883045285*^9, 3.7081883170495*^9}, {3.708188529796*^9, 
+   3.708188543237*^9}, 3.708188744325*^9, 3.708189256513*^9, {
+   3.708189768558*^9, 3.7081897736879997`*^9}},
+ CellLabel->
+  "Out[62]//TableForm=",ExpressionUUID->"7f5faba5-45ba-4568-a030-\
+8cf6fdabad69"]
+}, Open  ]],
+
+Cell["Getting a list of all the probabilities", "Direction",
+ CellChangeTimes->{{3.708190843301*^9, 
+  3.7081908699040003`*^9}},ExpressionUUID->"0116338b-8b10-443b-9465-\
+36a12f4f5f9f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"prob", "=", 
+  RowBox[{"distValues", "[", 
+   RowBox[{"[", 
+    RowBox[{"All", ",", "2"}], "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.708190532487*^9, 3.708190703575*^9}},
+ CellLabel->"In[80]:=",ExpressionUUID->"4a77def9-0d8e-4281-8134-2e0ac74bc9ef"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "0.3276800000000001`", ",", "0.4096000000000003`", ",", "0.2048`", ",", 
+   "0.051200000000000016`", ",", "0.006400000000000009`", ",", 
+   "0.0003200000000000001`"}], "}"}]], "Output",
+ CellChangeTimes->{3.70819073583*^9},
+ CellLabel->"Out[80]=",ExpressionUUID->"b811cda4-8818-4420-af27-09d81e92d82c"]
+}, Open  ]],
+
+Cell["Adding the probabilities of parts l1 to l2", "Direction",
+ CellChangeTimes->{{3.7081909109370003`*^9, 
+  3.708190952303*^9}},ExpressionUUID->"2168670b-5b31-4baf-af1c-c2ed9ea46c0f"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"n1", "=", "1"}], ";", " ", 
+  RowBox[{"(*", 
+   RowBox[{"location", " ", "of", " ", "probability", " ", "value"}], 
+   "*)"}]}]], "Input",
+ CellChangeTimes->{{3.708190974858*^9, 3.7081910388640003`*^9}},
+ CellLabel->"In[85]:=",ExpressionUUID->"554dc7ad-f0ac-4c83-be2d-b5105b870f9f"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"n2", "=", "2"}], ";"}]], "Input",
+ CellChangeTimes->{{3.70819104144*^9, 3.708191044763*^9}, {
+  3.7081911153640003`*^9, 3.708191130531*^9}},
+ CellLabel->"In[90]:=",ExpressionUUID->"d5a0b5b4-3d8f-4a59-b703-9c1ce3c50646"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Total", "[", 
+  RowBox[{"prob", "[", 
+   RowBox[{"[", 
+    RowBox[{"n1", ";;", "n2"}], "]"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.7081907099370003`*^9, 3.7081907285179996`*^9}, {
+  3.708190762414*^9, 3.708190802465*^9}, {3.7081909028450003`*^9, 
+  3.708190906744*^9}, {3.708190969633*^9, 3.708190972576*^9}},
+ CellLabel->"In[91]:=",ExpressionUUID->"f05ec92d-c97d-4997-add9-2fd8540855b0"],
+
+Cell[BoxData["0.7372800000000004`"], "Output",
+ CellChangeTimes->{{3.708190613946*^9, 3.708190622611*^9}, {3.708190685315*^9,
+    3.7081907383380003`*^9}, {3.7081907781809998`*^9, 3.708190802736*^9}, 
+   3.708191053653*^9, {3.708191126416*^9, 3.7081911335950003`*^9}},
+ CellLabel->"Out[91]=",ExpressionUUID->"0b45f369-6e1d-48d9-ba89-f67b9d072a6d"]
+}, Open  ]],
+
+Cell["Answers to example 2", "Text",
+ CellChangeTimes->{{3.7081872142535*^9, 
+  3.7081872274885*^9}},ExpressionUUID->"7eeb8ba8-91a2-4249-b95c-7e3a8b87e189"],
+
+Cell["\<\
+1. P(x=0)=0.3278
+2. P(x=1)=0.4096
+3. P(x\[LessSlantEqual]1)=P(x=0)+P(x=1) =0.7374\
+\>", "Text",
+ CellChangeTimes->{{3.708122584391*^9, 3.708122666757*^9}, {3.708122709538*^9,
+    3.7081227326135*^9}, {3.708122765884*^9, 3.708122818705*^9}, 
+   3.7081228829515*^9},ExpressionUUID->"883c2233-8bf1-43c1-a134-c0dc5e2bfee2"],
+
+Cell["Practice", "Direction",
+ CellChangeTimes->{{3.7081229029519997`*^9, 
+  3.708122905362*^9}},ExpressionUUID->"07b39e5f-ac06-4e42-8a6b-b8994154ff7b"],
+
+Cell["\<\
+Let\[CloseCurlyQuote]s assume your have a friend who has a statistics quiz \
+tomorrow, and he/she decides not to study for the quiz. The quiz consists of \
+10 multiple choice questions, and each question has 5 possible choices, but \
+only one is the correct answer.
+1. What is the probability your friend gets a perfect score on the quiz if \
+he/she is just guessing the answers?
+2. What is the probability he/she fails the exam? (70 is a passing grade and \
+each question is worth 10 points
+3. What would be your advice for you friend?\
+\>", "Text",
+ CellChangeTimes->{{3.7081228772609997`*^9, 3.7081228784685*^9}, {
+  3.708122912299*^9, 3.7081232792679996`*^9}, {3.7081233130945*^9, 
+  3.7081233251165*^9}},ExpressionUUID->"f893fb55-d5f8-4215-95a4-1fdfeedc5bf5"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Further Explorations", "FurtherExplorationSection",
+ CellChangeTimes->{{3.70077612322993*^9, 3.7007761320921593`*^9}, {
+  3.7007787731699142`*^9, 
+  3.70077877480995*^9}},ExpressionUUID->"ad978c0d-c2aa-4a7a-b357-\
+8b473ea847d9"],
+
+Cell["Hypergeometric Probability Distribution", "FurtherExploration",
+ CellChangeTimes->{{3.7007765492418337`*^9, 3.7007765636102467`*^9}, {
+  3.705104213701561*^9, 3.7051042224510612`*^9}, {3.7051697227932177`*^9, 
+  3.7051697367862177`*^9}, {3.7056847753333597`*^9, 3.7056847788413363`*^9}, {
+  3.705686193025524*^9, 3.7056861967297907`*^9}, {3.708191152593*^9, 
+  3.708191164873*^9}},ExpressionUUID->"635b071e-c79d-4a57-b51c-a3d1e924ac15"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Authorship information", "AuthorshipSection",
+ CellChangeTimes->{{3.705105762145127*^9, 3.7051057665253773`*^9}, {
+  3.7081234785474997`*^9, 3.708123479142*^9}, {3.7081235420404997`*^9, 
+  3.7081235444925003`*^9}},ExpressionUUID->"785776bf-57bb-4f02-be2d-\
+35748246b7be"],
+
+Cell["Silvani Vejar", "Authorship",
+ CellChangeTimes->{{3.7051057700535793`*^9, 3.7051057808261957`*^9}, {
+  3.7081234833094997`*^9, 
+  3.7081234852065*^9}},ExpressionUUID->"e37a8808-d8ac-43a5-9490-a85968010e19"],
+
+Cell["07/03/2017", "Authorship",
+ CellChangeTimes->{{3.705105786521521*^9, 3.7051057998362827`*^9}, {
+  3.7081234880705*^9, 
+  3.7081234929975*^9}},ExpressionUUID->"5019d88f-4a50-41d1-bd92-90bb5a529f68"],
+
+Cell["E.Vejar@Northeastern.edu", "Authorship",
+ CellChangeTimes->{{3.7051058070526953`*^9, 3.705105841815684*^9}, {
+  3.7081234967325*^9, 
+  3.708123509597*^9}},ExpressionUUID->"97692e08-afac-4da8-8ed0-fc863bda3ced"],
+
+Cell[CellGroupData[{
+
+Cell["References", "Subsubsection",
+ CellChangeTimes->{{3.7080369566865*^9, 3.7080369859865*^9}, {
+  3.7081235683315*^9, 
+  3.7081235723929996`*^9}},ExpressionUUID->"1611b117-823d-4327-a90a-\
+485c434f0b57"],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+\"Binomial Distribution\" from the Wolfram Demonstrations Project
+ http://demonstrations.wolfram.com/BinomialDistribution/
+Contributed by: Chris Boucher\
+\>", "Item",
+ CellChangeTimes->{{3.708121946454*^9, 
+  3.708121946454*^9}},ExpressionUUID->"aabab7ba-3223-401f-b4db-1ab016799fed"],
+
+Cell["http://onlinestatbook.com", "Item",
+ CellChangeTimes->{{3.7081219472415*^9, 
+  3.7081219484885*^9}},ExpressionUUID->"c423cf99-3571-420a-b0e6-4965f4569d92"],
+
+Cell["Elementary Statistics by Mario Triola", "Item",
+ CellChangeTimes->{
+  3.7081219472415*^9, {3.7081228389885*^9, 
+   3.708122857041*^9}},ExpressionUUID->"9d26e927-67f4-4498-9930-cb2688d6fe86"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1920, 980},
+WindowMargins->{{-9, Automatic}, {Automatic, 0}},
+DockedCells->Cell[
+  BoxData[
+   TagBox[
+    GridBox[{{
+       ItemBox["\"\"", ItemSize -> 0.2, StripOnInput -> False], 
+       DynamicModuleBox[{}, 
+        ActionMenuBox[
+        "\"Insert\"", {
+         "\"Section\"" :> 
+          Module[{$CellContext`nb = ButtonNotebook[]}, 
+            Exploration`MoveCursorAfterCellPosition[$CellContext`nb]; 
+            NotebookWrite[$CellContext`nb, 
+              Cell[
+               CellGroupData[{
+                 Cell["XXXX", "Section"], 
+                 Cell["XXXX", "Text"], 
+                 Cell["XXXX", "Direction"], 
+                 Cell[
+                  BoxData["XXXX"], "Input"]}, Open]], All]; 
+            SelectionMove[$CellContext`nb, Before, Cell]; 
+            SelectionMove[$CellContext`nb, Next, Cell]; 
+            SelectionMove[$CellContext`nb, All, CellContents]], Delimiter, 
+          "\"Text\"" :> 
+          Module[{$CellContext`nb = ButtonNotebook[]}, 
+            Exploration`MoveCursorAfterCellPosition[$CellContext`nb]; 
+            NotebookWrite[$CellContext`nb, 
+              Cell["XXXX", "Text"], All]; 
+            SelectionMove[$CellContext`nb, All, CellContents]], 
+          "\"Direction\"" :> 
+          Module[{$CellContext`nb = ButtonNotebook[]}, 
+            Exploration`MoveCursorAfterCellPosition[$CellContext`nb]; 
+            NotebookWrite[$CellContext`nb, 
+              Cell["XXXX", "Direction"], All]; 
+            SelectionMove[$CellContext`nb, All, CellContents]], 
+          "\"Further Exploration\"" :> 
+          Module[{$CellContext`nb = ButtonNotebook[]}, 
+            Exploration`MoveCursorAfterCellPosition[$CellContext`nb]; 
+            NotebookWrite[$CellContext`nb, 
+              Cell["XXXX", "FurtherExploration"], All]; 
+            SelectionMove[$CellContext`nb, All, CellContents]]}, Method -> 
+         "Queued", Appearance -> "PopupMenu", FrameMargins -> 2.4], 
+        Initialization :> (Exploration`MoveCursorAfterCellPosition[
+           Pattern[$CellContext`nb, 
+            Blank[]]] := Which[
+           MatchQ[
+            Developer`CellInformation[$CellContext`nb], {
+             Repeated[{
+               BlankSequence[], "CursorPosition" -> "CellBracket", 
+               BlankSequence[]}]}], 
+           SelectionMove[$CellContext`nb, After, Cell], 
+           Developer`CellInformation[$CellContext`nb] =!= $Failed, 
+           Module[{$CellContext`lnkre}, 
+             While[(LinkWrite[$ParentLink, 
+                 
+                 FrontEnd`CellInformation[$CellContext`nb]]; \
+$CellContext`lnkre = LinkRead[$ParentLink]); 
+              And[$CellContext`lnkre =!= $Failed, 
+                Not[
+                 MemberQ[
+                  ReplaceAll["CursorPosition", $CellContext`lnkre], 
+                  "CellBracket"]]], 
+              FrontEndExecute[
+               
+               FrontEnd`SelectionMove[$CellContext`nb, All, Cell, AutoScroll -> 
+                False]]]]; SelectionMove[$CellContext`nb, After, Cell]]), 
+        DynamicModuleValues :> {}], 
+       ItemBox["\"\"", ItemSize -> Fit, StripOnInput -> False], 
+       ButtonBox["\"Sample\"", ButtonFunction :> NotebookOpen[
+          
+          FileNameJoin[{$UserBaseDirectory, "Applications", 
+            "SummerSchoolTemplates", "FrontEnd", "TextResources", 
+            "TopicExplorationExample.nb"}]], Appearance -> Automatic, 
+        Evaluator -> Automatic, Method -> "Queued"]}}, AutoDelete -> False, 
+     GridBoxItemSize -> {
+      "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"]], 
+  "DockedCell"],
+CellLabelAutoDelete->False,
+Magnification:>1.5 Inherited,
+FrontEndVersion->"11.1 for Microsoft Windows (64-bit) (April 18, 2017)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[StyleDefinitions -> "Default.nb"]], 
+   Cell[
+    StyleData["Title"], FontFamily -> "Source Sans Pro", FontTracking -> -0.8,
+     FontColor -> RGBColor[0.65, 0, 0]], 
+   Cell[
+    StyleData["Abstract", StyleDefinitions -> StyleData["Text"]], FontSize -> 
+    16, FontSlant -> "Italic", FontColor -> GrayLevel[0.4]], 
+   Cell[
+    StyleData["Section"], CellFrame -> False, FontFamily -> "Source Sans Pro",
+     FontTracking -> -0.5, $CellContext`ReturnCreatesNewCell -> 
+    True, $CellContext`DefaultReturnCreatedCellStyle -> "Text"], 
+   Cell[
+    StyleData["FurtherExplorationSection"], 
+    CellMargins -> {{28, Inherited}, {6, 24}}, 
+    CellGroupingRules -> {"SectionGrouping", 30}, DefaultNewCellStyle -> 
+    "FurtherExploration", FontFamily -> "Source Sans Pro Semibold", FontSize -> 
+    22, FontColor -> GrayLevel[0.35]], 
+   Cell[
+    StyleData["FurtherExploration", StyleDefinitions -> StyleData["Text"]], 
+    CellMargins -> {{66, 10}, {5, 5}}, FontSize -> 14, FontWeight -> "Bold", 
+    FontColor -> GrayLevel[0.5], $CellContext`ReturnCreatesNewCell -> True], 
+   Cell[
+    StyleData["AuthorshipSection"], CellMargins -> {{28, Inherited}, {6, 24}},
+     CellGroupingRules -> {"SectionGrouping", 30}, DefaultNewCellStyle -> 
+    "FurtherExploration", FontFamily -> "Source Sans Pro Semibold", FontSize -> 
+    22, FontColor -> GrayLevel[0.35]], 
+   Cell[
+    StyleData["Authorship", StyleDefinitions -> StyleData["Text"]], 
+    CellMargins -> {{66, 10}, {4, 4}}, FontSize -> 14, FontColor -> 
+    GrayLevel[0.5], $CellContext`ReturnCreatesNewCell -> True], 
+   Cell[
+    StyleData["Text"], DefaultNewCellStyle -> 
+    "Direction", $CellContext`ReturnCreatesNewCell -> 
+    True, $CellContext`DefaultReturnCreatedCellStyle -> "Direction"], 
+   Cell[
+    StyleData["Direction", StyleDefinitions -> StyleData["Text"]], 
+    CellDingbat -> 
+    StyleBox["\[FilledSmallSquare]", FontColor -> GrayLevel[0.7]], 
+    CellMargins -> {{78, 10}, {6, 7}}, CellFrameLabelMargins -> 4, 
+    MenuSortingValue -> 10000, MenuCommandKey -> "8", FontSize -> 14, 
+    FontWeight -> "Plain", FontColor -> 
+    GrayLevel[0.4], $CellContext`DefaultReturnCreatedCellStyle -> "Input"], 
+   Cell[
+    StyleData["Code"], MenuCommandKey -> None]}, Visible -> False, 
+  FrontEndVersion -> "11.1 for Microsoft Windows (64-bit) (April 18, 2017)", 
+  StyleDefinitions -> "PrivateStylesheetFormatting.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 315, 4, 143, "Title", "ExpressionUUID" -> \
+"5142ffca-f66c-4e2f-ab7c-140997dc79ee"],
+Cell[898, 28, 438, 8, 50, "Abstract", "ExpressionUUID" -> \
+"98e317cc-07b7-46e2-9c6f-ae665b9c424e"],
+Cell[CellGroupData[{
+Cell[1361, 40, 500, 7, 91, "Section", "ExpressionUUID" -> \
+"0cfacbd9-8439-4b41-b35b-01087404ec94"],
+Cell[CellGroupData[{
+Cell[1886, 51, 424, 6, 44, "ItemNumbered", "ExpressionUUID" -> \
+"4495aba5-af5a-4590-9fe3-9281cf52cd5c"],
+Cell[2313, 59, 377, 6, 44, "ItemNumbered", "ExpressionUUID" -> \
+"f71f5b1d-33ed-4875-b935-84b4841c6be1"],
+Cell[2693, 67, 448, 6, 44, "ItemNumbered", "ExpressionUUID" -> \
+"13aff286-6346-4650-a9e1-1fa93f42462c"],
+Cell[3144, 75, 467, 8, 44, "ItemNumbered", "ExpressionUUID" -> \
+"c074c155-3b16-46f6-aa21-d2d3d9b43314"]
+}, Open  ]],
+Cell[3626, 86, 489, 10, 75, "Text", "ExpressionUUID" -> \
+"def2e319-622c-42a7-b098-627e82e68c49"],
+Cell[4118, 98, 1427, 41, 243, "DisplayFormulaNumbered", "ExpressionUUID" -> \
+"a53a063b-7d59-4fd8-bbf7-4a2efa126b6c"],
+Cell[5548, 141, 10088, 171, 356, "Text", "ExpressionUUID" -> \
+"cefec822-7f28-4291-baa4-2af8983e6cfd"],
+Cell[15639, 314, 215, 2, 44, "Direction", "ExpressionUUID" -> \
+"8c255bfe-b1df-4391-96a9-1b16095d008b"],
+Cell[15857, 318, 371, 7, 46, "Input", "ExpressionUUID" -> \
+"4a5d5e18-e5cf-40ef-9ee7-6dd8a0d4a746"],
+Cell[CellGroupData[{
+Cell[16253, 329, 1749, 39, 76, "Input", "ExpressionUUID" -> \
+"12e9c00b-1a30-4f6b-a756-a94e0af9e76a"],
+Cell[18005, 370, 7482, 188, 399, "Output", "ExpressionUUID" -> \
+"4090fbd5-3b69-48ad-a74c-47ffafe1bf0c"]
+}, Open  ]],
+Cell[25502, 561, 149, 2, 46, "Input", "ExpressionUUID" -> \
+"e7e485cf-08e0-4c21-98dd-b10c8b36b4f3"],
+Cell[25654, 565, 297, 7, 46, "Text", "ExpressionUUID" -> \
+"848e92e9-e120-48a7-857d-0472038fbf47"],
+Cell[25954, 574, 390, 7, 44, "Direction", "ExpressionUUID" -> \
+"c3d42781-ac1e-4b15-b6eb-2f9923450b6c"],
+Cell[26347, 583, 339, 5, 46, "Text", "ExpressionUUID" -> \
+"47bdf35c-d664-4cda-9f01-086a1ae55be9"],
+Cell[CellGroupData[{
+Cell[26711, 592, 2149, 59, 279, "Input", "ExpressionUUID" -> \
+"cb7e68b1-1778-4420-89b9-a487d90a290c"],
+Cell[28863, 653, 2583, 53, 732, "Output", "ExpressionUUID" -> \
+"dbb4bb49-e4c9-4d1a-a606-8999ec832076"]
+}, Open  ]],
+Cell[31461, 709, 529, 10, 75, "Text", "ExpressionUUID" -> \
+"79270907-56a9-459f-831f-c400082d5fc0"],
+Cell[31993, 721, 555, 13, 189, "Text", "ExpressionUUID" -> \
+"8d9b6dcf-1842-45ca-81f3-b2d4943b2938"],
+Cell[32551, 736, 967, 19, 189, "Text", "ExpressionUUID" -> \
+"16db3511-c830-419a-9c43-a7c43f737788"],
+Cell[33521, 757, 326, 6, 44, "Direction", "ExpressionUUID" -> \
+"fdeee94d-574b-495d-918b-3acaaa3ca8df",
+ InitializationCell->True],
+Cell[33850, 765, 254, 6, 46, "Input", "ExpressionUUID" -> \
+"ac613ca8-0ad2-439b-be36-04b7f0a69f83"],
+Cell[34107, 773, 213, 5, 46, "Input", "ExpressionUUID" -> \
+"baf3fdcb-db95-4621-bd1b-8b4ac7d9bfe7"],
+Cell[CellGroupData[{
+Cell[34345, 782, 1116, 30, 76, "Input", "ExpressionUUID" -> \
+"d74f2974-4245-4757-a5cf-a8097ba96347"],
+Cell[35464, 814, 10310, 258, 432, "Output", "ExpressionUUID" -> \
+"9d61b64b-8dfb-4a80-948d-98c072bfbdbd"]
+}, Open  ]],
+Cell[45789, 1075, 231, 3, 44, "Direction", "ExpressionUUID" -> \
+"db2e2a21-eda1-494f-9abc-b9a2a796a819"],
+Cell[CellGroupData[{
+Cell[46045, 1082, 550, 14, 46, "Input", "ExpressionUUID" -> \
+"68e2af5e-8c70-4fda-a2e2-f31d8cbba89a"],
+Cell[46598, 1098, 647, 16, 46, "Output", "ExpressionUUID" -> \
+"545ec6e7-acac-4402-b27a-67657c93f051"]
+}, Open  ]],
+Cell[47260, 1117, 185, 2, 44, "Direction", "ExpressionUUID" -> \
+"e91be345-378a-4d33-bcc7-226919e28445"],
+Cell[CellGroupData[{
+Cell[47470, 1123, 536, 8, 46, "Input", "ExpressionUUID" -> \
+"f198e100-b56a-497c-9c97-2ea492f48499"],
+Cell[48009, 1133, 1056, 28, 192, "Output", "ExpressionUUID" -> \
+"7f5faba5-45ba-4568-a030-8cf6fdabad69"]
+}, Open  ]],
+Cell[49080, 1164, 185, 3, 44, "Direction", "ExpressionUUID" -> \
+"0116338b-8b10-443b-9465-36a12f4f5f9f"],
+Cell[CellGroupData[{
+Cell[49290, 1171, 279, 6, 46, "Input", "ExpressionUUID" -> \
+"4a77def9-0d8e-4281-8134-2e0ac74bc9ef"],
+Cell[49572, 1179, 344, 7, 46, "Output", "ExpressionUUID" -> \
+"b811cda4-8818-4420-af27-09d81e92d82c"]
+}, Open  ]],
+Cell[49931, 1189, 186, 2, 44, "Direction", "ExpressionUUID" -> \
+"2168670b-5b31-4baf-af1c-c2ed9ea46c0f"],
+Cell[50120, 1193, 317, 7, 46, "Input", "ExpressionUUID" -> \
+"554dc7ad-f0ac-4c83-be2d-b5105b870f9f"],
+Cell[50440, 1202, 254, 5, 46, "Input", "ExpressionUUID" -> \
+"d5a0b5b4-3d8f-4a59-b703-9c1ce3c50646"],
+Cell[CellGroupData[{
+Cell[50719, 1211, 421, 8, 46, "Input", "ExpressionUUID" -> \
+"f05ec92d-c97d-4997-add9-2fd8540855b0"],
+Cell[51143, 1221, 347, 4, 46, "Output", "ExpressionUUID" -> \
+"0b45f369-6e1d-48d9-ba89-f67b9d072a6d"]
+}, Open  ]],
+Cell[51505, 1228, 156, 2, 46, "Text", "ExpressionUUID" -> \
+"7eeb8ba8-91a2-4249-b95c-7e3a8b87e189"],
+Cell[51664, 1232, 329, 7, 103, "Text", "ExpressionUUID" -> \
+"883c2233-8bf1-43c1-a134-c0dc5e2bfee2"],
+Cell[51996, 1241, 152, 2, 99, "Direction", "ExpressionUUID" -> \
+"07b39e5f-ac06-4e42-8a6b-b8994154ff7b"],
+Cell[52151, 1245, 774, 13, 360, "Text", "ExpressionUUID" -> \
+"f893fb55-d5f8-4215-95a4-1fdfeedc5bf5"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[52962, 1263, 234, 4, 193, "FurtherExplorationSection", "ExpressionUUID" \
+-> "ad978c0d-c2aa-4a7a-b357-8b473ea847d9"],
+Cell[53199, 1269, 442, 5, 90, "FurtherExploration", "ExpressionUUID" -> \
+"635b071e-c79d-4a57-b51c-a3d1e924ac15"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[53678, 1279, 277, 4, 193, "AuthorshipSection", "ExpressionUUID" -> \
+"785776bf-57bb-4f02-be2d-35748246b7be"],
+Cell[53958, 1285, 212, 3, 81, "Authorship", "ExpressionUUID" -> \
+"e37a8808-d8ac-43a5-9490-a85968010e19"],
+Cell[54173, 1290, 203, 3, 81, "Authorship", "ExpressionUUID" -> \
+"5019d88f-4a50-41d1-bd92-90bb5a529f68"],
+Cell[54379, 1295, 216, 3, 81, "Authorship", "ExpressionUUID" -> \
+"97692e08-afac-4da8-8ed0-fc863bda3ced"],
+Cell[CellGroupData[{
+Cell[54620, 1302, 206, 4, 130, "Subsubsection", "ExpressionUUID" -> \
+"1611b117-823d-4327-a90a-485c434f0b57"],
+Cell[CellGroupData[{
+Cell[54851, 1310, 294, 6, 208, "Item", "ExpressionUUID" -> \
+"aabab7ba-3223-401f-b4db-1ab016799fed"],
+Cell[55148, 1318, 161, 2, 94, "Item", "ExpressionUUID" -> \
+"c423cf99-3571-420a-b0e6-4965f4569d92"],
+Cell[55312, 1322, 196, 3, 94, "Item", "ExpressionUUID" -> \
+"9d26e927-67f4-4498-9930-cb2688d6fe86"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
